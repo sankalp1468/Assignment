@@ -11,7 +11,8 @@ class BooksProfileController {
     }
 
     def list(Integer max) {
-
+        def getALLBooks = BooksProfile.findAll()
+        [getALLBooks: getALLBooks]
     }
 
     def create() {
@@ -65,5 +66,9 @@ class BooksProfileController {
         catch (DataIntegrityViolationException e) {
             redirect(action: "show", id: id)
         }
+    }
+    
+    def openBook(){
+//        def getBookDetails = 
     }
 }
