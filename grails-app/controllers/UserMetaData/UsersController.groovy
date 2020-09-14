@@ -10,9 +10,9 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class UsersController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [saveUser: "POST", updateUser: "PUT", deleteUser: "POST"]
 
-    def show(Long id) {
+    def showAllUsers(Long id) {
         def usersInstance = Users.get(id)
         if (!usersInstance) {
             print "User doen't exist"
@@ -20,8 +20,12 @@ class UsersController {
 
         [usersInstance: usersInstance]
     }
+    
+    def showUser(){
+        
+    }
 
-    def edit(Long id) {
+    def editUserDetails(Long id) {
         def usersInstance = Users.get(id)
         if (!usersInstance) {
             print "User doen't exist"
@@ -29,14 +33,14 @@ class UsersController {
         [usersInstance: usersInstance]
     }
 
-    def update(Long id, Long version) {
+    def updateUser(Long id, Long version) {
         def usersInstance = Users.get(id)
         if (!usersInstance) {
             print "User doen't exist"
         }
     }
 
-    def delete(Long id) {
+    def deleteUser(Long id) {
         def usersInstance = Users.get(id)
     }
     
